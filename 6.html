@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Job(id, title, description, completed) {
+            this.id = id;
+            this.title = title;
+            this.description = description;
+            this.completed = completed;
+        }
+        let jobs = []
+        function addJob() {
+            let id = prompt("Nhập ID công việc:");
+            let title = prompt("Nhập tiêu đề công việc:");
+            let description = prompt("Nhập mô tả công việc:");
+            let completed = false;
+            let job = new Job(id, title, description, completed);
+            jobs.push(job);
+            console.log("Công việc đã được thêm thành công.");
+        }
+        function displayJobs() {
+            console.log("Danh sách công việc:");
+            for (let i = 0; i < jobs.length; i++) {
+                console.log("Công việc " + (i + 1) + ":");
+                console.log("ID: " + jobs[i].id);
+                console.log("Tiêu đề: " + jobs[i].title);
+                console.log("Mô tả: " + jobs[i].description);
+                console.log("Hoàn thành: " + jobs[i].completed);
+            }
+        }
+        function searchJobById() {
+            let idToSearch = prompt("Nhập ID công việc cần tìm kiếm:");
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].id === idToSearch) {
+                console.log("Công việc được tìm thấy:");
+                console.log("ID: " + jobs[i].id);
+                console.log("Tiêu đề: " + jobs[i].title);
+                console.log("Mô tả: " + jobs[i].description);
+                console.log("Hoàn thành: " + jobs[i].completed);
+                return;
+                }
+            }
+
+            console.log("Không tìm thấy công việc.");
+        }
+        // do {
+        //     switch (key) {
+        //         case 1:
+        //             function addjob() {
+        //                 let id = prompt("nhap id")
+        //                 let title = prompt("nhap tac gia")
+        //                 let description = prompt("nhap mo ta")
+        //                 let completed = false
+        //                 let job = new Job(id, title, description, completed); 
+        //                 jobs.push(job)
+        //                 console.log("Công việc đã được thêm thành công.");
+        //             }
+        //             addjob()
+        //             break;
+        //         case 2:
+
+        //             break;
+        //         default:
+        //             break;
+        //     }
+        // } while (1==1);
+        while (true) {
+            let choice = prompt("Chọn lựa chọn (1: Thêm công việc, 2: Hiển thị danh sách công việc, 3: Tìm kiếm công việc theo id, 4: Thoát):");
+            if (choice === "1") {
+                addJob();
+            } else if (choice === "2") {
+                displayJobs();
+            } else if (choice === "3") {
+                searchJobById();
+            } else if (choice === "4") {
+                break;
+            } else {
+                console.log("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+            }
+        }
+    </script>
+</body>
+</html>

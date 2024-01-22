@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let phoneBook={
+            contact :[
+                {
+                    name:"Alice",
+                    phone:"123564",
+                    email:"alice@email.com",
+                },
+                {
+                    name:"Bob",
+                    phone:"12364",
+                    email:"Bob@email.com",
+                }    
+            ]
+        }
+        for (let i = 0; i < phoneBook.contact.length; i++) {
+            let contacts = phoneBook.contact[i];
+            console.log("Tên: " + contacts.name);
+            console.log("Số điện thoại: " + contacts.phone);
+            console.log("Email: " + contacts.email);
+            console.log("----------------------");
+        }
+    </script>
+</body>
+</html>

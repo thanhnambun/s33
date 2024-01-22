@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Book(title, author, publishedYear) {
+            this.title = title;
+            this.author = author;
+            this.publishedYear = publishedYear;
+            this.isAvailable = true; 
+            this.borrow = function() {
+                if (this.isAvailable) {
+                this.isAvailable = false;
+                console.log("Sách đã được mượn.");
+                } else {
+                console.log("Sách không có sẵn để mượn.");
+                }
+            };
+            this.returnBook = function() {
+                if (!this.isAvailable) {
+                this.isAvailable = true;
+                console.log("Sách đã được trả.");
+                } else {
+                console.log("Sách đã có sẵn, không cần trả.");
+                }
+            };
+        }
+            function Library() {
+                this.books = [];
+                this.addBook = function(book) {
+                    this.books.push(book);
+                };
+                this.displayBooks = function() {
+                    for (let i = 0; i < this.books.length; i++) {
+                    this.books[i].displayInfo();
+                    }
+                };
+                this.isBookAvailable = function(bookTitle) {
+                    for (let i = 0; i < this.books.length; i++) {
+                    if (this.books[i].title === bookTitle) {
+                        return this.books[i].isAvailable;
+                    }
+                    }
+                    return false;
+                };
+            }
+            let library = new Library();
+            let book1 = new Book("To Kill a Mockingbird", "Harper Lee", 1960);
+            let book2 = new Book("1984", "George Orwell", 1949);
+            let book3 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925);
+            library.addBook(book1);
+            library.addBook(book2);
+            library.addBook(book3);
+            library.displayBooks();
+            book1.borrow();
+            console.log(library.isBookAvailable("To Kill a Mockingbird"));
+            book1.returnBook();
+            console.log(library.isBookAvailable("To Kill a Mockingbird"));
+    </script>
+</body>
+</html>

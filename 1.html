@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nguoi={
+            name:"nam",
+            age:"19",
+            addres:"Nam Dinh",
+        }
+        console.log(nguoi);
+        let x = nguoi =>{
+            nguoi.age = nguoi.date
+            delete nguoi.age
+        }
+        x(nguoi)
+        console.log(nguoi);
+        nguoi.date="26"
+        console.log(nguoi);
+    </script>
+</body>
+</html>
